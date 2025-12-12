@@ -8,10 +8,17 @@ import {
   Instagram,
   Mail,
   Phone,
+  Play,
+  CheckCircle,
+  Film,
+  Plane,
+  Package,
+  Pencil,
+  Settings,
+  Video,
 } from "lucide-react";
 import * as THREE from "three";
 import Logo from '../assets/Images/fullLogo.png';
-
 // --- BeeOverlay ---
 const BeeOverlay = () => {
   const canvasRef = useRef(null);
@@ -197,7 +204,7 @@ const ThreeBackground = () => {
       velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.002;
     }
 
-   particlesGeometry.addAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    particlesGeometry.addAttribute("position", new THREE.BufferAttribute(posArray, 3));
 
     const material = new THREE.PointsMaterial({
       size: 0.02,
@@ -279,25 +286,23 @@ const Nav = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-        <div className="text-2xl font-black text-white">
-      <img src={Logo} alt="EchoHive Creatives Logo" className="w-20"/>
-        </div>
+      <img src={Logo} alt="EchoHive Creatives" className="w-20" />
         <div className="hidden md:flex gap-8 text-sm font-semibold text-white">
-          <a href="#work" className="hover:text-yellow-400 transition-colors">
-            Work
-          </a>
-          <a href="#benefits" className="hover:text-yellow-400 transition-colors">
+          <a href="#services" className="hover:text-yellow-400 transition-colors">
             Services
           </a>
-          <a href="#pricing" className="hover:text-yellow-400 transition-colors flex items-center gap-1">
-            <Gift size={14} className="text-yellow-400" /> Christmas Deal
+          <a href="#work" className="hover:text-yellow-400 transition-colors">
+            Portfolio
+          </a>
+          <a href="#offer" className="hover:text-yellow-400 transition-colors flex items-center gap-1">
+            <Gift size={14} className="text-yellow-400" /> Free Audit
           </a>
         </div>
         <a
-          href="https://wa.me/2340000000000"
+          href="#contact"
           className="bg-yellow-400 text-black px-6 py-3 rounded-full text-sm font-bold hover:bg-blue-600 hover:text-white transition-all transform hover:scale-105"
         >
-          Let's Talk
+          Book My Audit
         </a>
       </div>
     </header>
@@ -313,7 +318,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 flex items-center justify-center px-6 overflow-hidden">
+    <section className="relative  pt-32 pb-5 flex items-center justify-center px-6 overflow-hidden">
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-blue-600/40 rounded-full blur-[150px] -z-10"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-400/30 rounded-full blur-[120px] -z-10"></div>
 
@@ -324,93 +329,121 @@ const Hero = () => {
           }`}
         >
           <div className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-yellow-400/20 border-2 border-yellow-400 text-yellow-400 text-sm font-bold uppercase tracking-wider mb-8">
-            <Gift size={16} /> Detty December Special - 40% OFF
+            <Gift size={16} /> FREE 30-Min Project Audit + 20% OFF
           </div>
-          <h1 className="text-3xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] mb-6">
-            We Don't Just <br className="hidden md:block" />
-              Manage Brands
-          
-            <br />
-            We Ignite Them
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[1.05] mb-6">
+            Transform Your Vision<br />
+            Into Powerful<br />
+            
+              Creative Content
+        
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-6 leading-relaxed">
-            Visual storytelling meets automation. Scale your business this holiday season with content that converts.
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-4 leading-relaxed">
+            Premium Brand Films • Event Coverage • Drone Operations • Creative Production
+          </p>
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+            Work with the team behind Nigeria's fastest-rising creative brands. 
           </p>
 
-          <div className="flex flex-col  sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://wa.me/2340000000000"
-              className="group relative px-10 py-3 bg-yellow-400 text-black font-bold rounded-full overflow-hidden transition-all hover:scale-105 inline-flex items-center justify-center gap-3 text-3xl"
+              href="#contact"
+              className="group relative px-10 py-5 bg-yellow-400 text-black font-bold rounded-full overflow-hidden transition-all hover:scale-105 inline-flex items-center justify-center gap-3 text-lg"
             >
-           
-              <span>Reserve Your Slot Now</span>
-                 <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M20.52 3.48A11.81 11.81 0 0 0 3.48 20.52L2 22l1.48-.48A12 12 0 1 0 20.52 3.48zM12 20a8 8 0 0 1-4.43-1.3l-.31-.2L6 18l.61-.99-.2-.31A8 8 0 1 1 12 20zm3.08-6.69c-.18-.09-1.06-.52-1.22-.58-.16-.06-.28-.09-.39.09-.1.18-.4.58-.49.7-.09.12-.18.14-.36.05-.18-.09-.73-.27-1.39-.86-.51-.48-.85-1.07-.95-1.25-.1-.18-.01-.28.07-.37.07-.07.16-.18.24-.27.08-.09.11-.18.18-.3.06-.12.03-.22-.02-.31-.05-.09-.39-.94-.54-1.29-.14-.33-.29-.27-.39-.27-.1 0-.22-.01-.34-.01s-.31.05-.47.22c-.16.16-.62.6-.62 1.46s.64 1.7.73 1.82c.09.12 1.26 1.92 3.05 2.7 1.67.74 1.67.49 1.98.46.3-.03.97-.39 1.11-.76.14-.37.14-.68.1-.76-.05-.08-.18-.11-.36-.2z" />
-              </svg>
+              <span>Book My Free Audit</span>
+              <ArrowRight size={20} />
             </a>
-    
+            <a
+              href="#work"
+              className="px-10 py-5 border-2 border-blue-500 text-white font-bold rounded-full hover:bg-blue-500 transition-all inline-flex items-center justify-center gap-3 text-lg"
+            >
+              <Play size={20} />
+              <span>See Work Portfolio</span>
+            </a>
           </div>
+
+          <p className="text-yellow-400 text-sm font-semibold mt-6">
+            Limited to the first 10 new clients this month
+          </p>
         </div>
+      </div>
+    </section>
+  );
+};
 
-        {/* Large Image Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-          <div className="col-span-2 row-span-2 relative rounded-3xl overflow-hidden group cursor-pointer border-4 border-blue-500/30 hover:border-yellow-400 transition-all">
-            <img
-              src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=1200"
-              alt="Professional Photography"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-8">
-              <div>
-                <span className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2 block">
-                  Brand Photography
-                </span>
-                <h3 className="text-white text-3xl font-bold">Professional Shoots</h3>
+// --- Value Proposition ---
+const ValueProposition = () => {
+  const values = [
+    {
+      icon: <Film className="w-12 h-12" />,
+      title: "High-Quality Production",
+      text: "Cinematic storytelling, sharp visuals, premium event coverage.",
+    },
+    {
+      icon: <Plane className="w-12 h-12" />,
+      title: "Professional Drone Services",
+      text: "Licensed operators + cutting-edge drone gear.",
+    },
+    {
+      icon: <Camera className="w-12 h-12" />,
+      title: "Photography & Videography",
+      text: "Corporate, lifestyle, product, documentary.",
+    },
+    {
+      icon: <Pencil className="w-12 h-12" />,
+      title: "Creative Direction & Branding",
+      text: "From concept → execution → delivery.",
+    },
+    {
+      icon: <Zap className="w-12 h-12" />,
+      title: "Fast & Reliable",
+      text: "Industry-standard workflow with fast turnarounds.",
+    },
+  ];
+
+  return (
+    <section className="py-5 px-6 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl md:text-6xl font-black text-center text-white mb-4">
+          Why Brands <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-yellow-400">Choose Us</span>
+        </h2>
+        <p className="text-center text-xl text-gray-400 mb-5">
+         Delacruz Innovations & EchoHive Creatives deliver world-class visuals that boost engagement, attract customers, and elevate your brand story.
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {values.map((item, i) => (
+            <div
+              key={i}
+              className="p-8 rounded-3xl bg-gradient-to-br from-blue-950/50 to-transparent border border-blue-500/20 hover:border-yellow-400/50 transition-all hover:-translate-y-2 group"
+            >
+              <div className="text-yellow-400 mb-6 group-hover:scale-110 transition-transform">
+                {item.icon}
               </div>
+              <h3 className="text-2xl font-bold text-white mb-4">{item.title}</h3>
+              <p className="text-gray-400 leading-relaxed">{item.text}</p>
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
-          <div className="relative rounded-3xl overflow-hidden group cursor-pointer border-4 border-blue-500/30 hover:border-yellow-400 transition-all">
-            <img
-              src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?auto=format&fit=crop&q=80&w=800"
-              alt="Studio Setup"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-4">
-              <h3 className="text-white text-lg font-bold">Studio Work</h3>
-            </div>
-          </div>
-
-          <div className="relative rounded-3xl overflow-hidden group cursor-pointer border-4 border-blue-500/30 hover:border-yellow-400 transition-all">
-            <img
-              src="https://images.unsplash.com/photo-1493421419110-74f4e21bec70?auto=format&fit=crop&q=80&w=800"
-              alt="Creative Content"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-4">
-              <h3 className="text-white text-lg font-bold">Creative</h3>
-            </div>
-          </div>
-
-          <div className="col-span-2 relative rounded-3xl overflow-hidden group cursor-pointer border-4 border-blue-500/30 hover:border-yellow-400 transition-all">
-            <img
-              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200"
-              alt="Brand Strategy"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-              <div>
-                <span className="text-yellow-400 text-sm font-bold uppercase tracking-wider mb-2 block">
-                  Brand Strategy
-                </span>
-                <h3 className="text-white text-2xl font-bold">Digital Campaigns</h3>
+// --- Showreel Section ---
+const ShowreelSection = () => {
+  return (
+    <section className="py-20 px-6">
+      <div className="max-w-5xl mx-auto text-center">
+        <div className="relative rounded-3xl overflow-hidden border-4 border-blue-500/30 hover:border-yellow-400 transition-all group">
+          <div className="aspect-video bg-gradient-to-br from-blue-950 to-black flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-24 h-24 rounded-full bg-yellow-400 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform cursor-pointer">
+                <Play size={40} className="text-black ml-2" />
               </div>
+              <h3 className="text-3xl font-bold text-white mb-3">Watch Our Showreel</h3>
+              <p className="text-gray-400 text-lg">
+                See how we turn ordinary moments into unforgettable content
+              </p>
             </div>
           </div>
         </div>
@@ -419,82 +452,115 @@ const Hero = () => {
   );
 };
 
-// --- VisualMasonry ---
-const VisualMasonry = () => {
+// --- Services Overview ---
+const ServicesOverview = () => {
+  const services = [
+    { icon: <Film />, name: "Brand Films & Commercials" },
+    { icon: <Camera />, name: "Event Coverage (Corporate, Lifestyle, Luxury)" },
+    { icon: <Plane />, name: "Drone Filming & Aerial Shots" },
+    { icon: <Package />, name: "Product Photography & Content Production" },
+    { icon: <Pencil />, name: "Branding & Creative Direction" },
+    { icon: <Settings />, name: "Gear & Drone Rentals" },
+    { icon: <Video />, name: "Social Media Content Shoots" },
+  ];
+
+  return (
+    <section id="services" className="py-5 px-6">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl md:text-6xl font-black text-center text-white mb-4">
+          What We Do
+        </h2>
+        <p className="text-center text-xl text-gray-400 mb-5">
+          Full-service creative production for modern brands
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, i) => (
+            <div
+              key={i}
+              className="p-6 rounded-2xl bg-gradient-to-br from-blue-950/30 to-transparent border border-blue-500/20 hover:border-yellow-400 transition-all flex items-center gap-4 group hover:-translate-y-1"
+            >
+              <div className="text-yellow-400 group-hover:scale-110 transition-transform">
+                {React.cloneElement(service.icon, { size: 32 })}
+              </div>
+              <span className="text-white font-semibold text-lg">{service.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// --- Portfolio Section ---
+const PortfolioSection = () => {
   const images = [
+    {
+      url: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600&h=900&fit=crop",
+      title: "Brand Film Production",
+      category: "Commercial",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=1600&h=900&fit=crop",
+      title: "Corporate Event Coverage",
+      category: "Events",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=1600&h=900&fit=crop",
+      title: "Aerial Drone Shots",
+      category: "Drone Operations",
+    },
     {
       url: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&h=900&fit=crop",
       title: "Product Photography",
       category: "Commercial",
     },
     {
-      url: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600&h=900&fit=crop",
-      title: "Brand Campaign",
-      category: "Marketing",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=1600&h=900&fit=crop",
-      title: "Corporate Events",
-      category: "Events",
-    },
-    {
-      url: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=1600&h=900&fit=crop",
+      url: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1600&h=900&fit=crop",
       title: "Lifestyle Content",
       category: "Social Media",
     },
     {
-      url: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1600&h=900&fit=crop",
-      title: "Studio Portraits",
-      category: "Editorial",
-    },
-    {
       url: "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1600&h=900&fit=crop",
-      title: "Equipment Setup",
-      category: "Behind the Scenes",
+      title: "Behind the Scenes",
+      category: "Production",
     },
   ];
 
   return (
-    <section id="work" className="py-5 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-5">
+    <section id="work" className="py-20 px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-16">
         <h2 className="text-4xl md:text-6xl font-black text-white mb-4">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-yellow-400"> Visual Storytelling</span>
+          Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-yellow-400">Work</span>
         </h2>
-        <p className="text-xl text-gray-400">Images that speak louder than words</p>
+        <p className="text-xl text-gray-400">Visual storytelling that drives results</p>
       </div>
 
-     <div className="
-  md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6
-  flex md:block gap-4 overflow-x-auto scrollbar-hide
-  snap-x snap-mandatory
-">
-  {images.map((img, i) => (
-    <div
-      key={i}
-      className="group relative rounded-2xl overflow-hidden cursor-pointer 
-      aspect-[4/3] border-4 border-blue-500/20 hover:border-yellow-400 
-      transition-all snap-start min-w-[85%] md:min-w-0"
-    >
-      <img
-        src={img.url}
-        alt={img.title}
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end p-6">
-        <span className="text-yellow-400 text-xs font-bold uppercase tracking-wider mb-2">
-          {img.category}
-        </span>
-        <h3 className="text-white text-2xl font-bold">{img.title}</h3>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {images.map((img, i) => (
+          <div
+            key={i}
+            className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-video border-4 border-blue-500/20 hover:border-yellow-400 transition-all"
+          >
+            <img
+              src={img.url}
+              alt={img.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all flex flex-col justify-end p-6">
+              <span className="text-yellow-400 text-xs font-bold uppercase tracking-wider mb-2">
+                {img.category}
+              </span>
+              <h3 className="text-white text-2xl font-bold">{img.title}</h3>
+            </div>
+          </div>
+        ))}
       </div>
-    </div>
-  ))}
-</div>
 
-
-      <div className="text-center mt-5">
+      <div className="text-center mt-12">
         <a
-          target="_blank"
           href="https://echohivecreatives.com/work"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-yellow-400 hover:text-black transition-all transform hover:scale-105"
         >
           View Full Portfolio <ArrowRight size={20} />
@@ -504,89 +570,357 @@ const VisualMasonry = () => {
   );
 };
 
-// --- Benefits ---
-const Benefits = () => {
-  const items = [
+// --- Social Proof ---
+const SocialProof = () => {
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  
+  const clients = [
+    "Nike", "Coca-Cola", "MTN", "Guinness", "Access Bank", "DStv"
+  ];
+  
+  const testimonials = [
     {
-      icon: <Zap className="text-yellow-400 w-16 h-16" />,
-      title: "Save Time",
-      text: "Reclaim 40% of your week with automated workflows that handle repetitive tasks.",
+      text: "Their production quality boosted our campaign engagement drastically.",
+      author: "Marketing Director, Tech Startup",
     },
     {
-      icon: <Camera className="text-blue-400 w-16 h-16" />,
-      title: "Visual Impact",
-      text: "High-end photography and videography that elevates your brand perception.",
+      text: "Professional, fast, and incredibly creative.",
+      author: "Event Coordinator, Luxury Brand",
     },
     {
-      icon: <ImageIcon className="text-yellow-400 w-16 h-16" />,
-      title: "Content Strategy",
-      text: "A cohesive content plan that keeps your audience engaged year-round.",
+      text: "Best drone team we've worked with in Lagos.",
+      author: "Creative Director, Agency",
     },
   ];
 
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="benefits" className="py-4 px-6 bg-gradient-to-b from-transparent via-blue-950/20 to-transparent">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-6xl font-black text-center text-white mb-4">
-          Why choose EchoHive?
-        </h2>
-        <p className="text-center text-xl text-gray-400 mb-5">
-          More than just a creative agency
-        </p>
-        <div className="grid md:grid-cols-3 gap-2">
-          {items.map((it, i) => (
+    <section className="py-5 px-6 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent overflow-hidden">
+      <div className="max-w-7xl mx-auto text-center">
+        <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">
+          Trusted by Top Brands, Creators, Agencies & Event Producers
+        </h3>
+        <p className="text-gray-400 mb-12">Join the brands creating unforgettable content</p>
+
+        {/* Client Logos Slider */}
+        <div className="relative mb-16 overflow-hidden">
+          <div className="flex animate-scroll gap-12 items-center">
+            {[...clients, ...clients].map((client, i) => (
+              <div
+                key={i}
+                className="flex-shrink-0 w-32 h-20 bg-white/5 rounded-xl border border-white/10 flex items-center justify-center backdrop-blur-sm"
+              >
+                <span className="text-white/60 font-semibold text-sm">{client}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid Layout */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8">
+          {testimonials.map((t, i) => (
             <div
               key={i}
-              className="p-4 rounded-3xl transition-all hover:-translate-y-2  text-center group"
+              className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/50 to-transparent border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:scale-105"
             >
-              <div className="rounded-2xl mx-auto flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                {it.icon}
-              </div>
-              <div className="text-2xl font-bold text-white mb-4">{it.title}</div>
-              <div className="text-gray-400 leading-relaxed text-lg">{it.text}</div>
+              <p className="text-white text-lg italic mb-4">"{t.text}"</p>
+              <p className="text-yellow-400 font-semibold"> {t.author}</p>
             </div>
           ))}
+        </div>
+
+        {/* Mobile: Card Shuffle */}
+        <div className="md:hidden relative h-64">
+          {testimonials.map((t, i) => (
+            <div
+              key={i}
+              className={`absolute inset-0 transition-all duration-500 ${
+                i === currentIndex
+                  ? 'opacity-100 translate-x-0 scale-100'
+                  : i === (currentIndex - 1 + testimonials.length) % testimonials.length
+                  ? 'opacity-0 -translate-x-full scale-95'
+                  : 'opacity-0 translate-x-full scale-95'
+              }`}
+            >
+              <div className="p-8 rounded-2xl bg-gradient-to-br from-blue-950/50 to-transparent border border-blue-500/20 h-full flex flex-col justify-center">
+                <p className="text-white text-lg italic mb-4">"{t.text}"</p>
+                <p className="text-yellow-400 font-semibold"> {t.author}</p>
+              </div>
+            </div>
+          ))}
+          
+          {/* Dots Indicator */}
+          <div className="absolute -bottom-8 left-0 right-0 flex justify-center gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  i === currentIndex ? 'bg-blue-500 w-6' : 'bg-white/30'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 20s linear infinite;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+    </section>
+  );
+};
+
+// --- Offer Section ---
+const OfferSection = () => {
+  return (
+    <section id="offer" className="py-5 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="relative p-1 rounded-[3rem] bg-gradient-to-r from-blue-600 via-blue-500 to-yellow-400">
+          <div className="bg-black rounded-[2.8rem] p-12 md:p-16 text-center relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
+
+            <div className="relative z-10">
+              <div className="inline-block px-6 py-2 rounded-full bg-yellow-400 text-black text-sm font-black uppercase tracking-wider mb-6">
+                🎁 Limited Time Offer
+              </div>
+
+              <h2 className="text-4xl md:text-6xl font-black text-white mb-6">
+                Get a <span className="text-yellow-400">FREE</span> 30-Min Project Audit
+                <br />+ 20% OFF Your First Project
+              </h2>
+
+              <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+                We will review your brand needs, content goals, event requirements, or upcoming campaign and give you a fully actionable plan  free.
+              </p>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-yellow-400 text-black font-bold rounded-full hover:bg-white transition-all transform hover:scale-105 text-lg mb-8"
+              >
+                Claim My Free Audit <ArrowRight size={24} />
+              </a>
+
+              <p className="text-yellow-400 font-bold text-sm">
+                ⏰ Only 10 slots left this month
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-// --- ChristmasPricing ---
-const ChristmasPricing = () => {
-  return (
-    <section id="pricing" className="py-5 px-6 relative">
-      <div className="max-w-5xl mx-auto">
-        <div className="relative p-1 rounded-[3rem] bg-gradient-to-r from-blue-600 via-blue-500 to-yellow-400">
-          <div className="bg-black rounded-[2.8rem] p-5 md:p-16 text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
+// --- Contact Form ---
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    projectType: "",
+    budget: "",
+    startDate: "",
+    description: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
 
-            <div className="relative z-10">
-              <div className="inline-block px-6 py-2 rounded-full bg-yellow-400 text-black text-sm font-black uppercase tracking-wider mb-6 shadow-lg shadow-yellow-400/50">
-                🎄 Detty December Offer
-              </div>
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-2">
-                Automate Your <span className="">Business</span>
-              </h2>
-              <p className="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
-                Get your business ready for 2025. Full automation audit and implementation package.
-              </p>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
 
-              <div className="flex justify-center items-baseline gap-3 mb-8">
-                <span className="text-5xl md:text-7xl font-black text-white">₦250k</span>
-                <span className="text-3xl md:text-4xl font-bold text-blue-400">—</span>
-                <span className="text-5xl md:text-7xl font-black text-white">₦450k</span>
-              </div>
-
-              <div className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-yellow-400 text-white font-bold text-base shadow-xl mb-10">
-                ⏰ Valid until Dec 31st • Only 50 slots available
-              </div>
-
-          
-            </div>
+  if (submitted) {
+    return (
+      <section className="py-5 px-6">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-8">
+            <CheckCircle size={48} className="text-black" />
           </div>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            You're Booked In!
+          </h2>
+          <p className="text-xl text-gray-300 mb-10">
+            A member of our team will contact you within 24 hours to confirm your free audit and next steps.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <a
+              href="https://echohivecreatives.com/work"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-blue-600 text-white font-bold rounded-full hover:bg-yellow-400 hover:text-black transition-all"
+            >
+              View Portfolio
+            </a>
+            <a
+              href="https://wa.me/2348123456789"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-yellow-400 text-yellow-400 font-bold rounded-full hover:bg-yellow-400 hover:text-black transition-all inline-flex items-center justify-center gap-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.52 3.48A11.81 11.81 0 0 0 3.48 20.52L2 22l1.48-.48A12 12 0 1 0 20.52 3.48zM12 20a8 8 0 0 1-4.43-1.3l-.31-.2L6 18l.61-.99-.2-.31A8 8 0 1 1 12 20zm3.08-6.69c-.18-.09-1.06-.52-1.22-.58-.16-.06-.28-.09-.39.09-.1.18-.4.58-.49.7-.09.12-.18.14-.36.05-.18-.09-.73-.27-1.39-.86-.51-.48-.85-1.07-.95-1.25-.1-.18-.01-.28.07-.37.07-.07.16-.18.24-.27.08-.09.11-.18.18-.3.06-.12.03-.22-.02-.31-.05-.09-.39-.94-.54-1.29-.14-.33-.29-.27-.39-.27-.1 0-.22-.01-.34-.01s-.31.05-.47.22c-.16.16-.62.6-.62 1.46s.64 1.7.73 1.82c.09.12 1.26 1.92 3.05 2.7 1.67.74 1.67.49 1.98.46.3-.03.97-.39 1.11-.76.14-.37.14-.68.1-.76-.05-.08-.18-.11-.36-.2z" />
+              </svg>
+              Chat With Our Team
+            </a>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section id="contact" className="py-20 px-6">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-gradient-to-br from-blue-950/50 to-transparent border border-blue-500/30 rounded-3xl p-8 md:p-12">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 text-center">
+            Start Your Project
+          </h2>
+          <p className="text-gray-400 text-center mb-10">
+            Fill out the form below and we'll get back to you within 24 hours
+          </p>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-white font-semibold mb-2">Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-black/50 border border-blue-500/30 text-white focus:border-yellow-400 focus:outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-white font-semibold mb-2">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-black/50 border border-blue-500/30 text-white focus:border-yellow-400 focus:outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-white font-semibold mb-2">Phone Number *</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-black/50 border border-blue-500/30 text-white focus:border-yellow-400 focus:outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-white font-semibold mb-2">Company / Brand Name</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-black/50 border border-blue-500/30 text-white focus:border-yellow-400 focus:outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-white font-semibold mb-2">What type of project are you planning?</label>
+              <select
+                name="projectType"
+                value={formData.projectType}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg bg-black/50 border border-blue-500/30 text-white focus:border-yellow-400 focus:outline-none transition-all"
+              >
+                <option value="">Select project type</option>
+                <option value="brand-film">Brand Film</option>
+                <option value="event-coverage">Event Coverage</option>
+                <option value="drone-operations">Drone Operations</option>
+                <option value="product-shoot">Product Shoot</option>
+                <option value="full-campaign">Full Creative Campaign</option>
+                <option value="branding">Branding</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-white font-semibold mb-2">Estimated Budget Range</label>
+                <select
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-black/50 border border-blue-500/30 text-white focus:border-yellow-400 focus:outline-none transition-all"
+                >
+                  <option value="">Select budget range</option>
+                  <option value="100k-300k">₦100k–₦300k</option>
+                  <option value="300k-700k">₦300k–₦700k</option>
+                  <option value="700k-2m">₦700k–₦2M</option>
+                  <option value="2m+">₦2M+</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-white font-semibold mb-2">Preferred Start Date</label>
+                <input
+                  type="date"
+                  name="startDate"
+                  value={formData.startDate}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg bg-black/50 border border-blue-500/30 text-white focus:border-yellow-400 focus:outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-white font-semibold mb-2">Project Description</label>
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                rows="4"
+                className="w-full px-4 py-3 rounded-lg bg-black/50 border border-blue-500/30 text-white focus:border-yellow-400 focus:outline-none transition-all resize-none"
+                placeholder="Tell us about your project..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-4 bg-yellow-400 text-black font-bold rounded-full hover:bg-white transition-all transform hover:scale-105 text-lg"
+            >
+              Book My Audit
+            </button>
+          </form>
         </div>
       </div>
     </section>
@@ -595,31 +929,31 @@ const ChristmasPricing = () => {
 
 // --- Footer ---
 const Footer = () => (
-  <footer className="py-3 px-6 border-t border-blue-500/30 bg-black">
+  <footer className="py-12 px-6 border-t border-blue-500/30 bg-black">
     <div className="max-w-7xl mx-auto">
-      <div className="grid md:grid-cols-3 gap-6 mb-6 items-center">
-
-        {/* Brand */}
+      <div className="grid md:grid-cols-3 gap-8 mb-8 items-center">
         <div>
-          <div className="font-black text-2xl text-white mb-2">
-          <img src={Logo} alt="EchoHive Creatives Logo" className="w-30"/>
-          </div>
+            <img src={Logo} alt="EchoHive Creatives" className="w-20" />
           <p className="text-gray-400 text-sm leading-relaxed">
-            Visual storytelling and automation that ignites brands across Nigeria and beyond.
+            Visual storytelling and creative production that elevates brands across Nigeria and beyond.
           </p>
         </div>
 
-        {/* Spacer for structure */}
         <div className="hidden md:block" />
 
-        {/* Social */}
         <div className="md:justify-self-end">
-          <h4 className="text-white font-semibold mb-2 text-sm">Connect</h4>
+          <h4 className="text-white font-semibold mb-3 text-sm">Connect With Us</h4>
           <div className="flex gap-3">
-            {[Instagram, Mail, Phone].map((Icon, i) => (
+            {[
+              { Icon: Instagram, link: "https://instagram.com/echohivecreatives" },
+              { Icon: Mail, link: "mailto:hello@echohivecreatives.com" },
+              { Icon: Phone, link: "tel:+2348123456789" }
+            ].map(({ Icon, link }, i) => (
               <a
                 key={i}
-                href="#"
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-blue-600 hover:bg-yellow-400 transition-all flex items-center justify-center"
               >
                 <Icon size={18} className="text-white" />
@@ -627,11 +961,9 @@ const Footer = () => (
             ))}
           </div>
         </div>
-
       </div>
 
-      {/* Bottom */}
-      <div className="text-center pt-2">
+      <div className="text-center pt-6 border-t border-blue-500/20">
         <p className="text-gray-500 text-xs">
           © {new Date().getFullYear()} EchoHive Creatives. All rights reserved.
         </p>
@@ -639,7 +971,6 @@ const Footer = () => (
     </div>
   </footer>
 );
-
 
 // --- App ---
 export default function App() {
@@ -678,19 +1009,30 @@ export default function App() {
         .animate-fade-in {
           animation: fade-in 0.8s ease-out forwards;
         }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
       `}</style>
       
       <Nav />
       <main className="relative z-10">
         <Hero />
-        <VisualMasonry />
-        <Benefits />
-        <ChristmasPricing />
+        <ValueProposition />
+        <ShowreelSection />
+        <ServicesOverview />
+        {/* <PortfolioSection /> */}
+        <SocialProof />
+        <OfferSection />
+        <ContactForm />
       </main>
       <Footer />
 
       <a
-        href="https://wa.me/2340000000000"
+        href="https://wa.me/2348123456789"
         target="_blank"
         rel="noreferrer"
         className="fixed right-6 bottom-6 z-50 flex items-center justify-center w-16 h-16 rounded-full shadow-2xl transform hover:scale-110 transition-transform shadow-yellow-400/50"

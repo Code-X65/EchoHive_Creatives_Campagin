@@ -14,9 +14,15 @@ import {
   CheckCircle2,
    ArrowLeft, Check
 } from "lucide-react";
-import { Video,  Aperture, Palette, MonitorPlay } from 'lucide-react';
-
+import { Video,  Aperture, Palette, MonitorPlay, X } from 'lucide-react';
+import zenith from '../assets/Images/zenith.png';
+import desperado from '../assets/Images/desperado.png';
+import amstel from '../assets/Images/amstel.png';
+import benfash from '../assets/Images/benfash.png';
+import amala from '../assets/Images/amala.png';
+import easyjet from '../assets/Images/easyjet.png';
 import * as THREE from "three";
+
 import Logo from '../assets/Images/fullLogo.png';
 
 // --- BeeOverlay ---
@@ -289,7 +295,7 @@ const ThreeBackground = () => {
 };
 
 // --- Nav ---
-const Nav = () => {
+const Nav = ({ onContactClick }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -301,7 +307,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-md bg-[#0b0f15]/80 border-b border-white/10" : "bg-transparent"}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-xs bg-[#0b0f15]/80" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
@@ -309,15 +315,18 @@ const Nav = () => {
           </div>
         </div>
         <div className="hidden md:flex gap-8 text-sm font-medium text-slate-300">
-          <a href="#work" className="hover:text-white transition-colors">Portfolio</a>
+          <a href="https://echohivecreatives.com/work" className="hover:text-white transition-colors">Portfolio</a>
           <a href="#services" className="hover:text-white transition-colors">Services</a>
           <a href="#contact" className="hover:text-yellow-400 transition-colors flex items-center gap-1">
             <Gift size={14} className="text-yellow-400" /> Free Audit
           </a>
         </div>
-        <a href="#contact" className="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition-colors">
-          Book My Audit
-        </a>
+        <button 
+    onClick={onContactClick}
+    className="bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition-colors"
+  >
+    Contact us
+  </button>
       </div>
     </header>
   );
@@ -341,13 +350,13 @@ const Hero = () => {
           <div className="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold uppercase tracking-wider mb-6">
             <Gift size={12} /> FREE 30-Min Audit + 20% OFF - Your First Creative Project
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white leading-[1.05] mb-4">
-            Transform Your Vision Into <br />
-            <span className="text-blue-500">Powerful Creative Content</span>
-          </h1>
-          <p className="text-base text-slate-300 max-w-2xl mb-4 leading-relaxed font-medium">
-            Premium Brand Films • Event Coverage • Drone Operations • Creative Production
-          </p>
+       <h1 className="text-4xl md:text-5xl font-bold text-white leading-[1.05] mb-4">
+  Turn Your Brand, Event & Campaign Into <br />
+  <span className="text-blue-500">High-Impact Visual Content That Converts</span>
+</h1>
+         <p className="text-base text-slate-300 max-w-2xl mb-4 leading-relaxed font-medium">
+  Brand Films, Event Coverage & Drone Production Designed to Boost Engagement and Sales
+</p>
           <p className="text-lg text-slate-400 max-w-2xl mb-8 leading-relaxed">
             Work with the team behind Nigeria's fastest-rising creative brands. <span className="hidden">World-class visuals that boost engagement, attract customers, and elevate your brand story.</span> 
           </p>
@@ -483,10 +492,10 @@ const WhyChooseUs = () => {
 // --- Showreel Section ---
 const Showreel = () => {
   return (
-    <section className="py-4 px-4 bg-slate-900/30">
+    <section className="py-4 px-4">
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">See Our Work In Action</h2>
-        <p className="text-slate-400 mb-12">See how we turn ordinary moments into unforgettable content</p>
+        {/* <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">See Our Work In Action</h2> */}
+        {/* <p className="text-slate-400 mb-12">See how we turn ordinary moments into unforgettable content</p> */}
         <div className="aspect-video bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
           <div className="w-full h-full flex items-center justify-center text-slate-500">
             <div className="text-center">
@@ -546,7 +555,7 @@ const ServicesOverview = () => {
       icon: <MonitorPlay className="w-10 h-10" />
     },
     {
-      title: "Social Content",
+      title: "Social Media Content",
       image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
       icon: <Instagram className="w-10 h-10" />
     },
@@ -557,7 +566,7 @@ const ServicesOverview = () => {
   };
 
   return (
-    <section id="services" className="py-4 px-6 bg-slate-950 ">
+    <section id="services" className="py-4 px-6 ">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-4">
@@ -655,15 +664,15 @@ const ServicesOverview = () => {
                       
                       {/* Content */}
                       <div className="relative h-full flex flex-col justify-end p-8 pb-10">
-                        <div className="text-white mb-4 p-3 bg-blue-600/20 backdrop-blur-md rounded-2xl w-fit border border-blue-500/30">
+                        {/* <div className="text-white mb-4 p-3 bg-blue-600/20 backdrop-blur-md rounded-2xl w-fit border border-blue-500/30">
                             {service.icon}
-                        </div>
+                        </div> */}
                         <h3 className="text-2xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
                             {service.title}
                         </h3>
                         <div className="flex items-center gap-2 text-green-400 font-medium">
                             <CheckCircle2 className="w-5 h-5" />
-                            <span className="text-sm">Available Now</span>
+                            <span className="text-xl">Available Now</span>
                         </div>
                       </div>
                     </div>
@@ -707,7 +716,7 @@ const ServicesOverview = () => {
                     {service.icon}
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-xl mb-3 group-hover:translate-x-1 transition-transform">
+                    <h3 className="text-white font-bold text-2xl mb-3 group-hover:translate-x-1 transition-transform">
                         {service.title}
                     </h3>
                     <div className="flex items-center gap-2 text-slate-400 group-hover:text-green-400 transition-colors">
@@ -762,18 +771,20 @@ const VisualMasonry = () => {
 };
 
 // --- Social Proof ---
+
+
 const SocialProof = () => {
   const logos = [
-    { name: "Nike", color: "text-white" },
-    { name: "Coca-Cola", color: "text-red-500" },
-    { name: "MTN", color: "text-yellow-400" },
-    { name: "Guinness", color: "text-white" },
-    { name: "Pepsi", color: "text-blue-400" },
-    { name: "Dangote", color: "text-green-400" }
+    { name: "Zenth tech", image: zenith, width: 80, height: 30 },
+    { name: "Desperado", image: desperado, width: 120, height: 40 },
+    { name: "Amstel Malta", image: amstel, width: 100, height: 35 },
+    { name: "Benfash", image: benfash, width: 100, height: 40 },
+    { name: "Amalaonthgo", image: amala, width: 80, height: 30 },
+    { name: "easyjet", image: easyjet, width: 100, height: 40 }
   ];
 
   return (
-    <section className="py-4 px-6 bg-slate-900/30 overflow-hidden">
+    <section className="py-4 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">Trusted by Top Brands</h2>
         <p className="text-center text-slate-400 mb-16">Creators, agencies & event producers choose us</p>
@@ -781,10 +792,19 @@ const SocialProof = () => {
         <div className="relative">
           <div className="flex animate-scroll">
             {[...logos, ...logos].map((logo, i) => (
-              <div key={i} className="flex-shrink-0 mx-8 flex items-center justify-center w-40 h-24">
-                <span className={`text-4xl font-bold ${logo.color} opacity-60 hover:opacity-100 transition-opacity`}>
-                  {logo.name}
-                </span>
+              <div 
+                key={i} 
+                className="flex-shrink-0 mx-8 flex items-center justify-center w-40 h-24"
+              >
+                <div className="relative opacity-60 hover:opacity-100 transition-opacity duration-300">
+                  <img
+                    src={logo.image}
+                    alt={`${logo.name} logo`}
+                    width={logo.width}
+                    height={logo.height}
+                    className="object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -798,6 +818,8 @@ const SocialProof = () => {
         }
         .animate-scroll {
           animation: scroll 20s linear infinite;
+          display: flex;
+          width: max-content;
         }
         .animate-scroll:hover {
           animation-play-state: paused;
@@ -810,8 +832,7 @@ const SocialProof = () => {
 // --- Contact Form ---
 
 
-
-const ContactForm = () => {
+const ContactForm = ({ onClose }) => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -843,239 +864,245 @@ const ContactForm = () => {
 
   if (submitted) {
     return (
-      <section id="contact" className="py-4 px-6  flex items-center justify-center">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="mb-8 inline-flex items-center justify-center w-24 h-24 rounded-full bg-green-600/20 border-4 border-green-600">
-            <Check size={48} className="text-green-600" />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-2">
-            🎉 Thank You {formData.name}
-          </h2>
-          <h3 className="text-3xl font-bold text-blue-400 mb-6">
-            You're Booked In!
-          </h3>
-          <p className="text-xl text-slate-300 mb-8 max-w-xl mx-auto">
-            A member of our team will contact you within 24 hours to confirm your free audit and next steps.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#portfolio"
-              className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all hover:scale-105"
-            >
-              View Portfolio
-            </a>
-            <a
-              href="https://wa.me/2348000000000"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all hover:scale-105"
-            >
-              Chat With Our Team (WhatsApp)
-            </a>
+      <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+        <div className="relative bg-slate-900/95 backdrop-blur-lg p-6 rounded-xl border border-slate-800 max-w-md w-full">
+          <button 
+            onClick={onClose}
+            className="absolute top-3 right-3 text-slate-400 hover:text-red-500 transition-colors"
+          >
+            <X size={20} />
+          </button>
+          
+          <div className="text-center py-4">
+            <div className="mb-4 inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-400/20 border-2 border-yellow-400">
+              <Check size={32} className="text-yellow-400" />
+            </div>
+            <h2 className="text-2xl font-bold text-white mb-2">
+              🎉 Thank You {formData.name}!
+            </h2>
+            <h3 className="text-xl font-bold text-yellow-400 mb-4">
+              You're Booked In!
+            </h3>
+            <p className="text-slate-300 mb-6 max-w-sm mx-auto">
+              While you wait, explore how we've helped brands like yours stand out visually
+            </p>
+            <div className="flex flex-col gap-3">
+              <a
+                target="_blank"
+                href="https://echohivecreatives.com/work"
+                onClick={onClose}
+                className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all text-sm"
+              >
+                View Our Portfolio
+              </a>
+              <a
+                href="https://wa.me/2348109880912"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 bg-yellow-400 text-slate-900 font-semibold rounded-lg hover:bg-yellow-500 transition-all text-sm"
+              >
+                Chat With Us On WhatsApp
+              </a>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     );
   }
 
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="inline-block px-4 py-2 rounded-full bg-green-600 text-white text-sm font-bold uppercase tracking-wider mb-4">
-            Limited Offer
+    <div className="fixed inset-0 flex items-center justify-center z-70 p-4">
+      <div className="relative bg-slate-900/95 backdrop-blur-lg p-6 rounded-xl border border-slate-800 max-w-md w-full max-h-[90vh] mt-10 overflow-y-auto">
+        <button 
+          onClick={onClose}
+          className="absolute top-3 right-3 text-slate-400 hover:text-red-500 transition-colors z-10"
+        >
+          <X size={20} />
+        </button>
+
+        <div className="mb-4">
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-xl font-bold text-white">Book Free Audit</h2>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Get a FREE 30-Min Project Audit<br />+ 20% OFF Your First Project
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto mb-4">
-            We will review your brand needs, content goals, event requirements, or upcoming campaign and give you a fully actionable plan for free.
-          </p>
-          <p className="text-yellow-400 font-semibold opacity-50">⚡ Only 10 slots left this month</p>
+          <div className="flex gap-1">
+            {[1, 2, 3, 4].map((i) => (
+              <div
+                key={i}
+                className={`h-1 flex-1 rounded-full transition-colors ${
+                  i <= step ? 'bg-blue-500' : 'bg-slate-700'
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Progress Indicator */}
-        <div className="flex items-center justify-center mb-8 gap-2">
-          {[1, 2, 3, 4].map((num) => (
-            <div key={num} className="flex items-center">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${
-                step >= num ? 'bg-blue-600 text-white' : 'bg-slate-800 text-slate-500'
-              }`}>
-                {num}
-              </div>
-              {num < 4 && <div className={`w-12 h-1 ${step > num ? 'bg-blue-600' : 'bg-slate-800'}`} />}
+        {/* Step 1: Basic Info */}
+        {step === 1 && (
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-white">Your Details</h3>
+            <div>
+              <label className="block text-white text-sm font-medium mb-1">Name <span className="text-red-500">*</span></label>
+              <input 
+                type="text" 
+                name="name" 
+                value={formData.name}
+                onChange={handleChange} 
+                className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm" 
+                placeholder="Full name"
+              />
             </div>
-          ))}
-        </div>
-
-        <div className="bg-slate-900/50 p-8 rounded-2xl border border-slate-800">
-          {/* Step 1: Basic Info */}
-          {step === 1 && (
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-6">Let's start with your details</h3>
-              <div>
-                <label className="block text-white font-medium mb-2">Name *</label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  value={formData.name}
-                  onChange={handleChange} 
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none" 
-                  placeholder="Your full name"
-                />
-              </div>
-              <div>
-                <label className="block text-white font-medium mb-2">Email *</label>
-                <input 
-                  type="email" 
-                  name="email" 
-                  value={formData.email}
-                  onChange={handleChange} 
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-white font-medium mb-2">Phone Number *</label>
-                <input 
-                  type="tel" 
-                  name="phone" 
-                  value={formData.phone}
-                  onChange={handleChange} 
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none"
-                  placeholder="+234 800 000 0000"
-                />
-              </div>
+            <div>
+              <label className="block text-white text-sm font-medium mb-1">Email <span className="text-red-500">*</span></label>
+              <input 
+                type="email" 
+                name="email" 
+                value={formData.email}
+                onChange={handleChange} 
+                className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm"
+                placeholder="your@email.com"
+              />
             </div>
-          )}
-
-          {/* Step 2: Company Info */}
-          {step === 2 && (
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-6">Tell us about your company</h3>
-              <div>
-                <label className="block text-white font-medium mb-2">Company / Brand Name</label>
-                <input 
-                  type="text" 
-                  name="company" 
-                  value={formData.company}
-                  onChange={handleChange} 
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none"
-                  placeholder="Your company name (optional)"
-                />
-              </div>
-              <div>
-                <label className="block text-white font-medium mb-2">What type of project are you planning? *</label>
-                <select 
-                  name="projectType" 
-                  value={formData.projectType}
-                  onChange={handleChange} 
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none"
-                >
-                  <option value="">Select project type</option>
-                  <option value="brand-film">Brand Film</option>
-                  <option value="event-coverage">Event Coverage</option>
-                  <option value="drone-operations">Drone Operations</option>
-                  <option value="product-shoot">Product Shoot</option>
-                  <option value="creative-campaign">Full Creative Campaign</option>
-                  <option value="branding">Branding</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
+            <div>
+              <label className="block text-white text-sm font-medium mb-1">Phone <span className="text-red-500">*</span></label>
+              <input 
+                type="tel" 
+                name="phone" 
+                value={formData.phone}
+                onChange={handleChange} 
+                className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm"
+                placeholder="+234 800 000 0000"
+              />
             </div>
-          )}
-
-          {/* Step 3: Budget & Timeline */}
-          {step === 3 && (
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-6">Budget and timeline</h3>
-              <div>
-                <label className="block text-white font-medium mb-2">Estimated Budget Range</label>
-                <select 
-                  name="budget" 
-                  value={formData.budget}
-                  onChange={handleChange} 
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none"
-                >
-                  <option value="">Select budget range</option>
-                  <option value="100k-300k">₦100k–₦300k</option>
-                  <option value="300k-700k">₦300k–₦700k</option>
-                  <option value="700k-2m">₦700k–₦2M</option>
-                  <option value="2m+">₦2M+</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-white font-medium mb-2">Preferred Start Date</label>
-                <input 
-                  type="date" 
-                  name="startDate" 
-                  value={formData.startDate}
-                  onChange={handleChange} 
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none" 
-                />
-              </div>
-            </div>
-          )}
-
-          {/* Step 4: Project Description */}
-          {step === 4 && (
-            <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white mb-6">Tell us about your project</h3>
-              <div>
-                <label className="block text-white font-medium mb-2">Project Description</label>
-                <textarea 
-                  name="description" 
-                  rows={6}
-                  value={formData.description}
-                  onChange={handleChange} 
-                  className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none"
-                  placeholder="Share your vision, goals, and any specific requirements..."
-                ></textarea>
-              </div>
-            </div>
-          )}
-
-          {/* Navigation Buttons */}
-          <div className="flex gap-4 mt-8">
-            {step > 1 && (
-              <button
-                onClick={prevStep}
-                className="flex-1 py-4 bg-slate-800 text-white font-semibold rounded-lg hover:bg-slate-700 transition-colors inline-flex items-center justify-center gap-2"
-              >
-                <ArrowLeft size={18} />
-                Back
-              </button>
-            )}
-            {step < 4 ? (
-              <button
-                onClick={nextStep}
-                className="flex-1 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2"
-              >
-                Next
-                <ArrowRight size={18} />
-              </button>
-            ) : (
-              <button
-                onClick={handleSubmit}
-                className="flex-1 py-4 bg-green-600 text-white font-bold text-lg rounded-lg hover:bg-green-700 transition-colors"
-              >
-                Book My Free Audit
-              </button>
-            )}
           </div>
+        )}
+
+        {/* Step 2: Company Info */}
+        {step === 2 && (
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-white">Company Info</h3>
+            <div>
+              <label className="block text-white text-sm font-medium mb-1">Company / Brand</label>
+              <input 
+                type="text" 
+                name="company" 
+                value={formData.company}
+                onChange={handleChange} 
+                className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm"
+                placeholder="Company name (optional)"
+              />
+            </div>
+            <div>
+              <label className="block text-white text-sm font-medium mb-1">Project Type *</label>
+              <select 
+                name="projectType" 
+                value={formData.projectType}
+                onChange={handleChange} 
+                className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm"
+              >
+                <option value="">Select project type</option>
+                <option value="brand-film">Brand Film</option>
+                <option value="event-coverage">Event Coverage</option>
+                <option value="drone-operations">Drone Operations</option>
+                <option value="product-shoot">Product Shoot</option>
+                <option value="creative-campaign">Full Creative Campaign</option>
+                <option value="branding">Branding</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+        )}
+
+      {/* Step 3: Budget & Timeline */}
+{step === 3 && (
+  <div className="space-y-4">
+    <h3 className="text-lg font-bold text-white">Budget & Timeline</h3>
+    <div>
+      <label className="block text-white text-sm font-medium mb-1">Budget Range</label>
+      <select 
+        name="budget" 
+        value={formData.budget}
+        onChange={handleChange} 
+        className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm"
+      >
+        <option value="">Select budget</option>
+        <option value="100k-300k">₦100k–₦300k</option>
+        <option value="300k-700k">₦300k–₦700k</option>
+        <option value="700k-2m">₦700k–₦2M</option>
+        <option value="2m+">₦2M+</option>
+      </select>
+    </div>
+    <div>
+      <label className="block text-white text-sm font-medium mb-1">Start Date</label>
+      <input 
+        type="date" 
+        name="startDate" 
+        value={formData.startDate}
+        onChange={handleChange} 
+        min={new Date().toISOString().split('T')[0]} // This prevents past dates
+        className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm" 
+      />
+    </div>
+  </div>
+)}
+
+        {/* Step 4: Project Description */}
+        {step === 4 && (
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-white">Project Details</h3>
+            <div>
+              <label className="block text-white text-sm font-medium mb-1">Description</label>
+              <textarea 
+                name="description" 
+                rows={4}
+                value={formData.description}
+                onChange={handleChange} 
+                className="w-full px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-white focus:border-blue-500 focus:outline-none transition-colors text-sm resize-none"
+                placeholder="Share your vision, goals, and requirements..."
+              ></textarea>
+            </div>
+          </div>
+        )}
+
+        {/* Navigation Buttons */}
+        <div className="flex gap-3 mt-6">
+          {step > 1 && (
+            <button
+              onClick={prevStep}
+              className="flex-1 py-3 bg-slate-800 text-white font-semibold rounded-lg hover:bg-slate-700 transition-colors inline-flex items-center justify-center gap-1 text-sm"
+            >
+              <ArrowLeft size={16} />
+              Back
+            </button>
+          )}
+          {step < 4 ? (
+            <button
+              onClick={nextStep}
+              className="flex-1 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all hover:scale-105 inline-flex items-center justify-center gap-1 text-sm"
+            >
+              Next
+              <ArrowRight size={16} />
+            </button>
+          ) : (
+            <button
+              onClick={handleSubmit}
+              className="flex-1 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition-all hover:scale-105 text-sm"
+            >
+              Book Free Audit
+            </button>
+          )}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
 
 // --- Footer ---
 const Footer = () => (
-  <footer className="py-12 px-6 border-t border-slate-800 bg-[#080b10]">
+  <footer className="py-4 px-6 border-t border-slate-800 bg-[#080b10]">
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
       <div>
-        <div className="font-bold text-xl text-white mb-1">EchoHive Creatives</div>
+        <img src={Logo} alt="EchoHive Creatives" className="w-30 " />
         <div className="text-sm text-slate-500">Visuals. Production. Growth.</div>
       </div>
       <div className="flex gap-6">
@@ -1090,6 +1117,7 @@ const Footer = () => (
 
 // --- App ---
 export default function App() {
+  const [showContactForm, setShowContactForm] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -1113,7 +1141,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0b0f15] text-white font-sans selection:bg-blue-500 selection:text-white">
-      <Nav />
+    <Nav onContactClick={() => setShowContactForm(true)} />
       <main className="relative z-10">
         <Hero />
         <WhyChooseUs />
@@ -1121,7 +1149,26 @@ export default function App() {
         <ServicesOverview />
         {/* <VisualMasonry /> */}
         <SocialProof />
-        <ContactForm />
+                <div className="text-center mb-12">
+          <div className="inline-block px-4 py-2 rounded-full bg-green-600 text-white text-sm font-bold uppercase tracking-wider mb-4">
+            Limited Offer
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            Get a FREE 30-Min Project Audit<br />+ 20% OFF Your First Project
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto mb-4">
+            We will review your brand needs, content goals, event requirements, or upcoming campaign and give you a fully actionable plan for free.
+          </p>
+          <p className="text-yellow-400 font-semibold opacity-50">⚡ Only 10 slots left this month</p>
+        </div>
+        {/* <ContactForm /> */}
+        {showContactForm && (
+  <div className="fixed inset-0 bg-black/70 z-[200] flex items-center justify-center p-4" onClick={() => setShowContactForm(false)}>
+    <div className="max-w-4xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+      <ContactForm onClose={() => setShowContactForm(false)} />
+    </div>
+  </div>
+)}
       </main>
       <Footer />
 
